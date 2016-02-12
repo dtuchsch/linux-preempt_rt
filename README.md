@@ -17,4 +17,9 @@ The kernel config (.config) is already set up fully-preemptible.
 ## Build and Run
 
 1. Clone the repository `git clone --depth=1 https://github.com/dtuchsch/rpi-linux-preempt_rt.git`.
-2. Open the menuconfig of the kernel configuration
+2. Set up your compiler-prefix like this `export CCPREFIX=/opt/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-`
+3. Open the menuconfig of the kernel configuration and adjust the settings `make ARCH=arm CROSS_COMPILE=${CCPREFIX} menuconfig`
+4. Build the kernel `make ARCH=arm CROSS_COMPILE=${CCPREFIX} zImage modules dtbs -j5`
+5. Flash the kernel onto the SD card and you're ready to go.
+
+
