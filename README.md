@@ -22,4 +22,10 @@ The kernel config (.config) is already set up fully-preemptible.
 4. Build the kernel `make ARCH=arm CROSS_COMPILE=${CCPREFIX} zImage modules dtbs -j5`
 5. Flash the kernel onto the SD card and you're ready to go.
 
+## Real-Time performance
+I made some rt tests with *cyclictest* on the same time executing *hackbench* to determine the worst-case latencies under high system load. My worst-case latencies were 99 microseconds with the following settings:
 
+```
+cyclictest -p98 -n -t
+hackbench -l5000000
+```
